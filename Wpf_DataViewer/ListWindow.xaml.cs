@@ -112,7 +112,7 @@ namespace Wpf_DataViewer
         {
             //     display the number of matching records on the form
 
-            if (dataGridView_Characters.Items.Count == 0) // || (dataGridView_Characters.Items.Count == 1 && dataGridView_Characters.Columns[0] == ""))
+            if (dataGridView_Characters.Items.Count == 0) 
             {
                 lbl_SearchMessage.Content = "No results found";
             }
