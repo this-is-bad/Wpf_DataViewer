@@ -1,0 +1,23 @@
+﻿<Window x:Class="Wpf_DataViewer.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_DataViewer"
+        mc:Ignorable="d"
+        Title="Instructions" Width="300" Grid.IsSharedSizeScope="True" d:DesignHeight="Auto" Height="Auto" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Row="0" VerticalAlignment="Top" Width="Auto">
+            <TextBlock HorizontalAlignment="Left" Margin="0,5" VerticalAlignment="Top"  TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="How to Use This Application"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Text="Click a cell in the left-most column to&#x0a;select a record,then click the View&#x0a;Detail button to display the details of&#x0a;the selected record." VerticalAlignment="Top" FontSize="16" />
+            <TextBlock HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Text="Click the Sort button to sort the grid&#x0a;by name, in ascending or descending&#x0a;order." VerticalAlignment="Top" FontSize="16" />
+            <TextBlock HorizontalAlignment="Left" Margin="0,5" TextWrapping="Wrap" Text="Type a value in the Search textbox to&#x0a;find records whose names match the&#x0a;search text." VerticalAlignment="Top" FontSize="16" />
+        </StackPanel>
+        <Button x:Name="btn_Close" Content="Close" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Width="56" Click="Btn_Close_Click" Height="26" FontSize="16" Margin="0,0,0,10"/>
+
+    </Grid>
+</Window>
