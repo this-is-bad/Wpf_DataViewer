@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_DataViewer"
         mc:Ignorable="d"
-        Title="Data Viewer List" Width="525" Loaded="ListWindow_Loaded">
+        Title="Data Viewer List" Width="525" Loaded="ListWindow_Loaded" SizeToContent="Height">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <DataGrid x:Name="dataGridView_Characters" ItemsSource="{Binding}" LoadingRow="DataGrid_LoadingRow" SelectionMode="Single" HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Row="2" VerticalAlignment="Top"/>
+            <DataGrid x:Name="dataGridView_Characters" ItemsSource="{Binding}" LoadingRow="DataGrid_LoadingRow" SelectionMode="Single" HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Row="2" VerticalAlignment="Top" IsReadOnly="True"/>
         </Grid>
         <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Left" Margin="27,10,0,0"  Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Btn_Help_Click" FontSize="16" />
         <Button x:Name="btn_Detail" Content="Detail" HorizontalAlignment="Left" Margin="228,10,0,10"  Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Btn_Detail_Click" FontSize="16" />

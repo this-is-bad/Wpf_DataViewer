@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_DataViewer"
         mc:Ignorable="d"
-        Title="Detail" Width="300" Loaded="DetailWindow_Loaded">
+        Title="Detail" Width="429" Loaded="DetailWindow_Loaded" FontSize="16" SizeToContent="Height">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,13 +16,13 @@
         <Label x:Name="lbl_FullName" Content="Full Name" HorizontalAlignment="Left" Margin="10" Grid.Row="0" VerticalAlignment="Top" FontSize="20" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image x:Name="img_Character" HorizontalAlignment="Left" Height="Auto" Margin="10,10,0,0" Grid.Column="0" VerticalAlignment="Top" Width="Auto"/>
+            <Image x:Name="img_Character" HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Column="0" VerticalAlignment="Top" Width="Auto"/>
 
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2">
@@ -34,7 +34,7 @@
             </StackPanel>
 
         </Grid>
-         <TextBlock x:Name="txtbx_Description" HorizontalAlignment="Left" Margin="10" Grid.Row="2" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="btn_Close" Content="Close" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="3" VerticalAlignment="Top" Width="49" Click="Btn_Close_Click" FontSize="16"/>
+        <TextBlock x:Name="txtbx_Description" HorizontalAlignment="Left" Margin="10" Grid.Row="2" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontSize="16" Width="392"/>
+        <Button x:Name="btn_Close" Content="Close" HorizontalAlignment="Center" Margin="0,10,0,10" Grid.Row="3" VerticalAlignment="Top" Width="49" Click="Btn_Close_Click" FontSize="16"/>
     </Grid>
 </Window>

@@ -20,12 +20,18 @@ namespace Wpf_DataViewer
     /// </summary>
     public partial class DetailWindow : Window
     {
-        Character _person = new Character();
+        Character _character = new Character();
 
-        public DetailWindow(Character person)
+        //BitmapImage _bi3 = new BitmapImage();
+
+        public DetailWindow(Character character)
         {
             InitializeComponent();
-            _person = person;
+            _character = character;
+
+            //_bi3.BeginInit();
+            //_bi3.UriSource = new Uri(@"Images/" + _person.ImageFileName, UriKind.Relative);
+            //_bi3.EndInit();
         }
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
@@ -35,21 +41,22 @@ namespace Wpf_DataViewer
 
         private void DetailWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string packUri = "pack://application:,,,/AssemblyName;Images/" + _person.ImageFileName;
+            Uri uri = new Uri("pack://application:,,,/AssemblyName;component/Images/" + _character.ImageFileName);
+
             //
             // format and display character information
             //
-            lbl_FullName.Content = _person.FullName();
-            lbl_FirstName.Content = "First Name: " + _person.FirstName;
-            lbl_LastName.Content = "Last Name: " + _person.LastName;
-            lbl_Id.Content = "ID: " + _person.Id.ToString();
-            lbl_Age.Content = "Age: " + _person.Age.ToString();
-            lbl_Gender.Content = "Gender:" + _person.Gender.ToString();
-            txtbx_Description.Text = _person.Description;
-            //Uri uri = new Uri(@"/Wpf_DataViewer;Images/" + _person.ImageFileName, UriKind.Relative);
-            //img_Character.Source = new BitmapImage(uri);
-            img_Character.Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource;
-            this.Content = _person.FullName() + " Details";
+            lbl_FullName.Content = _character.FullName();
+            lbl_FirstName.Content = "First Name: " + _character.FirstName;
+            lbl_LastName.Content = "Last Name: " + _character.LastName;
+            lbl_Id.Content = "ID: " + _character.Id.ToString();
+            lbl_Age.Content = "Age: " + _character.Age.ToString();
+            lbl_Gender.Content = "Gender: " + _character.Gender.ToString();
+            txtbx_Description.Text = _character.Description;
+
+            img_Character.Source = new BitmapImage(uri);
+
+            this.Content = _character.FullName() + " Details";
         }
     }
 }

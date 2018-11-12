@@ -135,7 +135,7 @@ namespace Wpf_DataViewer
 
         private void Btn_ClearFilter_Click(object sender, RoutedEventArgs e)
         {
-            cmb_Filter.SelectedItem = "";
+            cmb_Filter.SelectedItem = null;
             SortSearchFilter(false);
         }
 
@@ -197,7 +197,7 @@ namespace Wpf_DataViewer
         {
             string searchTerm = txt_Search.Text;
             List<Character> filteredList;
-            filteredList = characterList.Where(c => (cmb_Filter.SelectedItem.ToString() == "" || c.Gender.ToString() == cmb_Filter.SelectedItem.ToString())).ToList();
+            filteredList = characterList.Where(c => (cmb_Filter.SelectedItem == null || cmb_Filter.SelectedItem.ToString() == "" || c.Gender.ToString() == cmb_Filter.SelectedItem.ToString())).ToList();
 
             return filteredList;
         }
@@ -209,7 +209,7 @@ namespace Wpf_DataViewer
         /// <returns>List of Character</returns>
         private List<Character> SearchList(List<Character> characterList)
         {
-            string searchTerm = txt_Search.Text;
+            string searchTerm = txt_Search.Text.ToString();
 
             List<Character> searchedList = characterList.Where(c => c.LastName.ToUpper().Contains(searchTerm.ToUpper())
                                                 || c.FirstName.ToUpper().Contains(searchTerm.ToUpper())).ToList();
@@ -226,16 +226,18 @@ namespace Wpf_DataViewer
         {
             List<Character> sortedList;
 
+            _sortNameDir = (_sortNameDir == null || _sortNameDir == "" ? "A": _sortNameDir);
+
             //
             // sort ascending when _sortNameDir = "A", and descending otherwise
             //
-            if (_sortNameDir == "A" || _sortNameDir == null)
+            if (_sortNameDir == "A")
             {
-                sortedList = characterList.OrderBy(c => c.LastName).ThenBy(c => c.FirstName).ToList();
+                sortedList = characterList.OrderBy(c => c.LastName).ThenBy(c => c.FirstName).ThenBy(c => c.Gender).ToList();
             }
             else
             {
-                sortedList = characterList.OrderByDescending(c => c.LastName).ThenByDescending(c => c.FirstName).ToList();
+                sortedList = characterList.OrderByDescending(c => c.LastName).ThenByDescending(c => c.FirstName).ThenByDescending(c => c.Gender).ToList();
             }
 
             if (toggleSort)
