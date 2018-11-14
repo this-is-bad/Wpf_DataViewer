@@ -131,7 +131,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bigbedrock.jpg" />
+    <Resource Include="Images\bigbedrock.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bamm_bamm_rubble.gif">
@@ -163,7 +165,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\image_not_found.jpg" />
+    <Resource Include="Images\image_not_found.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
