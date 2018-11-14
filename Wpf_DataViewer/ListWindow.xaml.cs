@@ -72,7 +72,7 @@ namespace Wpf_DataViewer
             if (dataGridView_Characters.GetType().ToString() != "")
             {
                 Character character = new Character();
-                character = (Character)dataGridView_Characters.SelectedItem;//.DataBoundItem;
+                character = (Character)dataGridView_Characters.SelectedItem;
 
                 DetailWindow detailWindow = new DetailWindow(character);
                 detailWindow.ShowDialog();
@@ -168,6 +168,9 @@ namespace Wpf_DataViewer
             HideGridColumns();
         }
 
+        /// <summary>
+        /// Hide columns in the grid
+        /// </summary>
         private void HideGridColumns()
         {
             //
@@ -177,7 +180,11 @@ namespace Wpf_DataViewer
             this.dataGridView_Characters.Columns[5].Visibility = Visibility.Hidden;
             this.dataGridView_Characters.Columns[6].Visibility = Visibility.Hidden;
         }
-
+        
+        /// <summary>
+        /// Sort, search, and filter grid
+        /// </summary>
+        /// <param name="toggleSort"></param>
         private void SortSearchFilter(bool toggleSort)
         {
             if (_characters.Any())

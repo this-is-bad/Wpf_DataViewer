@@ -22,16 +22,10 @@ namespace Wpf_DataViewer
     {
         Character _character = new Character();
 
-        //BitmapImage _bi3 = new BitmapImage();
-
         public DetailWindow(Character character)
         {
             InitializeComponent();
             _character = character;
-
-            //_bi3.BeginInit();
-            //_bi3.UriSource = new Uri(@"Images/" + _person.ImageFileName, UriKind.Relative);
-            //_bi3.EndInit();
         }
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
@@ -41,7 +35,7 @@ namespace Wpf_DataViewer
 
         private void DetailWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri("pack://application:,,,/AssemblyName;component/Images/" + _character.ImageFileName);
+            Uri uri = new Uri(@"/Images/" + _character.ImageFileName, UriKind.Relative);
 
             //
             // format and display character information
@@ -56,7 +50,7 @@ namespace Wpf_DataViewer
 
             img_Character.Source = new BitmapImage(uri);
 
-            this.Content = _character.FullName() + " Details";
+            this.Title = _character.FullName() + " Details";
         }
     }
 }

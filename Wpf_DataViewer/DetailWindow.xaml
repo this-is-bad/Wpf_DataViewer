@@ -22,7 +22,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image x:Name="img_Character" HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Column="0" VerticalAlignment="Top" Width="Auto"/>
+            <Image x:Name="img_Character" HorizontalAlignment="Left" Height="Auto" Margin="10" Grid.Column="0" VerticalAlignment="Top" Width="Auto" Source="Images/image_not_found.jpg"/>
 
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2">
