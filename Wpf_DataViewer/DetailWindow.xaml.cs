@@ -35,22 +35,26 @@ namespace Wpf_DataViewer
 
         private void DetailWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri(@"/Images/" + _character.ImageFileName, UriKind.Relative);
+            if (_character != null)
+            {
+                if (_character.ImageFileName != null && _character.ImageFileName != "")
+                {
+                    Uri uri = new Uri(@"/Images/" + _character.ImageFileName, UriKind.Relative);
+                    img_Character.Source = new BitmapImage(uri);
+                }
+                //
+                // format and display character information
+                //
+                lbl_FullName.Content = _character.FullName();
+                lbl_FirstName.Content = "First Name: " + _character.FirstName;
+                lbl_LastName.Content = "Last Name: " + _character.LastName;
+                lbl_Id.Content = "ID: " + _character.Id.ToString();
+                lbl_Age.Content = "Age: " + _character.Age.ToString();
+                lbl_Gender.Content = "Gender: " + _character.Gender.ToString();
+                txtbx_Description.Text = _character.Description;
 
-            //
-            // format and display character information
-            //
-            lbl_FullName.Content = _character.FullName();
-            lbl_FirstName.Content = "First Name: " + _character.FirstName;
-            lbl_LastName.Content = "Last Name: " + _character.LastName;
-            lbl_Id.Content = "ID: " + _character.Id.ToString();
-            lbl_Age.Content = "Age: " + _character.Age.ToString();
-            lbl_Gender.Content = "Gender: " + _character.Gender.ToString();
-            txtbx_Description.Text = _character.Description;
-
-            img_Character.Source = new BitmapImage(uri);
-
-            this.Title = _character.FullName() + " Details";
+                this.Title = _character.FullName() + " Details";
+            }
         }
     }
 }
